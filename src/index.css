@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.currentChatter{
+    margin-left: auto;
+}
+.app-header{
+    /* background-color: rgba(5, 5, 5, 0.9); */
+    text-align: center;
+    /* padding: 35px; */
+    color: black;
+}
+
+.input-area {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 100%;
+    padding-top: 30px;
+}
+
+.msg-input {
+    flex-basis: 90%;
+    height: 40px;
+    border-radius: 16px 0 0 16px;
+    border: 1px solid;
+    padding: 8px;
+}
+
+.btn-send {
+    flex-basis: 10%;
+    min-width: 50px;
+    height: 40px;
+    border-radius: 0 16px 16px 0;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-left: 0px;
+    background-color: white;
+}
+
