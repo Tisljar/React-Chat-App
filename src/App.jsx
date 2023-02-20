@@ -1,7 +1,11 @@
+import { Route, Routes } from "react-router-dom";
+import ChatPage from "./pages/ChatPage";
 
 const App = () => {
   return (
-    <div></div>
+    <div>
+      <ChatPage />
+    </div>
   );
 }
 
