@@ -1,17 +1,14 @@
 const Messages = ({ currentChatter, messages }) => {
     const renderMessage = (message) => {
-        const { member, text, msgId } = message;
-        const messageFromMe = member.id === currentChatter;
+        const { member, text } = message;
+        const messageFromMe = member.id === currentChatter.id;
         const className = messageFromMe
-            ? "messages-message currentChatter"
-            : "messages-message";
+            ? "messages-message current-chatter"
+            : "messages-message other-chatter";
         return (
-            <li key={msgId} className={className}>
-                <span className="Avatar" />
+            <li className={className}>
+                {/* <span className="Avatar" style={{ backgroundColor: member.clientData.color }} /> */}
                 <div className="chat-box">
-                    <span
-                        style={{ backgroundColor: member.clientData.color }}
-                    ></span>
                     <div className="username">{member.clientData.username}</div>
                     <div className="message-content">{text}</div>
                 </div>

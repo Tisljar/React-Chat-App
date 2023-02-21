@@ -1,5 +1,4 @@
 import { useState } from "react";
-import UsersContext from "../services/UserContext";
 
 const Input = ({onSendMessage}) => {
     const [text, setText] = useState("");
@@ -8,7 +7,8 @@ const Input = ({onSendMessage}) => {
     };
     const sendMessage = (e) => {
         if (e.type === "click" || e.key === "Enter") {
-            setText({text: ""});
+            e.preventDefault();
+            setText('');
             onSendMessage(text);
         }
         else return;

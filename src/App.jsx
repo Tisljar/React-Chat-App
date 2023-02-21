@@ -4,6 +4,13 @@ import randomColor from "./services/randomColor";
 import randomName from "./services/randomName";
 
 class App extends Component {
+    state = {
+        messages: [],
+        member: {
+            username: randomName(),
+            color: randomColor(),
+        },
+    };
     constructor() {
         super();
         this.drone = new window.Scaledrone("XR4pZ8C082pBHncb", {
@@ -15,47 +22,38 @@ class App extends Component {
             }
             const member = { ...this.state.member };
             member.id = this.drone.clientId;
-            this.state.member = member;
+            this.setState({member});
         });
-        const room = this.drone.subscribe("observable-chatroom");
-        room.on("data", (data, member) => {
+        const room = this.drone.subscribe("observable-room");
+        room.on('data', (data, member) => {
             const messages = this.state.messages;
-            messages.push({ member, text: data });
-            this.state.messages = messages;
+            messages.push({  text: data, member: member});
+            this.setState({messages: messages});
         });
     }
-    state = {
-        messages: [],
-        member: {
-            username: randomName(),
-            color: randomColor(),
-        },
-    };
-    MsgCounter = 1;
     onSendMessage = (message) => {
-        const messages = this.state.messages;
-        this.MsgCounter += 1;
-        messages.push({
-            text: message,
-            member: this.state.member,
-            msgId: this.MsgCounter,
-        });
-        this.setState({ messages: messages });
+        // const newMessages = this.state.messages;
+        // newMessages.push({
+        //     text: message,
+        //     member: this.state.member,
+        // });
+        // this.setState({ messages: newMessages });
         this.drone.publish({
-            room: "observable-chatroom",
-            message,
+            room: "observable-room",
+            message
         });
     };
-    contextData = {
-        onSendMessage: this.onSendMessage,
-        messages: this.state.messages,
-        member: this.state.member,
-    };
+    // contextData = {
+    //     onSendMessage: this.onSendMessage,
+    //     messages: this.state.messages,
+    //     member: this.state.member,
+    // };
     render() {
         return (
             <div className="container">
                 <div className="app-header">
                     <h1>Chat App</h1>
+                    <hr className="margin-hr"/>
                 </div>
                 <ChatPage
                     currentChatter={this.state.member}

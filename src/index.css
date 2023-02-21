@@ -3,18 +3,82 @@
     position: relative;
 }
 
+.messages-list{
+    padding: 0;
+    margin: auto;
+
+}
+
+.margin-hr {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
 .container {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 16px;
+    padding: 16px;
 }
 
 body {
     font-family: "Roboto", sans-serif;
+    background-image: linear-gradient(90deg, #5ee7df 0%, #b490ca 100%);
+}
+
+.chat-box{
+    padding: 8px;
+    border: 16px;
+}
+.messages-message{
+    display: flex;
+    margin-top: 10px;
+    border-radius: 16px;
 }
 
 .current-chatter{
-    margin-left: auto;
+    flex-direction: row-reverse;
+    text-align: right;
+    color: black;
 }
+
+.current-chatter .message-content{
+    background-color: blue;
+    padding: 16px;
+    border-radius: 16px;
+    margin-top: 8px;
+    color: whitesmoke;
+    text-align: right;
+}
+
+.other-chatter{
+    color: black;
+    width: fit-content;
+}
+
+.other-chatter .message-content{
+    background-color: red;
+    padding: 16px;
+    border-radius: 16px;
+    margin-top: 8px;
+    color: whitesmoke;
+}
+
+.username{
+    font-weight: 700;
+}
+
+.current-chatter .username{
+    padding-right: 4px;
+}
+
+.other-chatter .username{
+    padding-left: 4px;
+}
+
+
+
 .app-header{
     /* background-color: rgba(5, 5, 5, 0.9); */
     text-align: center;
