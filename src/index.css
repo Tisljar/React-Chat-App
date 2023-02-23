@@ -3,16 +3,6 @@
     position: relative;
 }
 
-.messages-list {
-    padding: 0;
-    margin: auto;
-}
-
-.margin-hr {
-    margin-left: 16px;
-    margin-right: 16px;
-}
-
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -21,14 +11,16 @@
     padding: 16px;
 }
 
+.margin-hr {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     background-color: #fdfffc;
 }
-span {
-    width: 50px;
-    height: 50px;
-}
+/* FORMA HOME PAGE */
 .radio-label {
     display: inline-block;
 }
@@ -47,24 +39,17 @@ span {
     background-color: aqua;
 }
 
-.Avatar1 {
-    background-image: fixed center url(/src/assets/img/Avatar1.png);
+.messages-list {
+    padding: 0;
+    margin: auto;
 }
-.Avatar2 {
-    background-image: fixed center url(/src/assets/img/Avatar2.png);
+
+/*ChatBox*/
+.app-header {
+    text-align: center;
+    color: black;
 }
-.Avatar3 {
-    background-image: fixed center url(/src/assets/img/Avatar3.png);
-}
-.Avatar4 {
-    background-image: fixed center url(/src/assets/img/Avatar4.png);
-}
-.Avatar5 {
-    background-image: fixed center url(/src/assets/img/Avatar5.png);
-}
-.Avatar6 {
-    background-image: fixed center url(/src/assets/img/Avatar6.png);
-}
+
 .chat-box {
     padding: 8px;
     border: 16px;
@@ -114,14 +99,7 @@ span {
 .other-chatter .username {
     padding-left: 4px;
 }
-
-.app-header {
-    /* background-color: rgba(5, 5, 5, 0.9); */
-    text-align: center;
-    /* padding: 35px; */
-    color: black;
-}
-
+/* INPUT AREA */
 .input-area {
     display: flex;
     justify-content: space-between;
@@ -148,4 +126,25 @@ span {
     border-right: 1px solid;
     border-left: 0px;
     background-color: white;
+}
+
+/*Services */
+
+.Avatar1 {
+    background-image: fixed center url(/src/assets/img/Avatar1.png);
+}
+.Avatar2 {
+    background-image: fixed center url(/src/assets/img/Avatar2.png);
+}
+.Avatar3 {
+    background-image: fixed center url(/src/assets/img/Avatar3.png);
+}
+.Avatar4 {
+    background-image: fixed center url(/src/assets/img/Avatar4.png);
+}
+.Avatar5 {
+    background-image: fixed center url(/src/assets/img/Avatar5.png);
+}
+.Avatar6 {
+    background-image: fixed center url(/src/assets/img/Avatar6.png);
 }
