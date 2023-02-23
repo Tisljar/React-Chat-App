@@ -9,6 +9,10 @@ export default class ChatApp extends Component {
         return (
             <>
                 <div className="container">
+                    <div className="app-header">
+                        <h1>Chat App</h1>
+                        <hr className="margin-hr" />
+                    </div>
                     <Messages
                         messages={messages}
                         currentChatter={currentChatter}

@@ -3,10 +3,9 @@
     position: relative;
 }
 
-.messages-list{
+.messages-list {
     padding: 0;
     margin: auto;
-
 }
 
 .margin-hr {
@@ -26,24 +25,57 @@ body {
     font-family: "Roboto", sans-serif;
     background-image: linear-gradient(90deg, #5ee7df 0%, #b490ca 100%);
 }
+span {
+    width: 50px;
+    height: 50px;
+}
+.radio-label {
+    display: inline-block;
+}
+.radio-input {
+    display: none;
+  }
+  
 
-.chat-box{
+.radio-input:checked + .avatar-png{
+    border-radius: 48px;
+    background-color: aqua;
+}
+.Avatar1 {
+    background-image: fixed center url(/src/assets/img/Avatar1.png);
+}
+.Avatar2 {
+    background-image: fixed center url(/src/assets/img/Avatar2.png);
+}
+.Avatar3 {
+    background-image: fixed center url(/src/assets/img/Avatar3.png);
+}
+.Avatar4 {
+    background-image: fixed center url(/src/assets/img/Avatar4.png);
+}
+.Avatar5 {
+    background-image: fixed center url(/src/assets/img/Avatar5.png);
+}
+.Avatar6 {
+    background-image: fixed center url(/src/assets/img/Avatar6.png);
+}
+.chat-box {
     padding: 8px;
     border: 16px;
 }
-.messages-message{
+.messages-message {
     display: flex;
     margin-top: 10px;
     border-radius: 16px;
 }
 
-.current-chatter{
+.current-chatter {
     flex-direction: row-reverse;
     text-align: right;
     color: black;
 }
 
-.current-chatter .message-content{
+.current-chatter .message-content {
     background-color: blue;
     padding: 16px;
     border-radius: 16px;
@@ -52,12 +84,12 @@ body {
     text-align: right;
 }
 
-.other-chatter{
+.other-chatter {
     color: black;
     width: fit-content;
 }
 
-.other-chatter .message-content{
+.other-chatter .message-content {
     background-color: red;
     padding: 16px;
     border-radius: 16px;
@@ -65,21 +97,19 @@ body {
     color: whitesmoke;
 }
 
-.username{
+.username {
     font-weight: 700;
 }
 
-.current-chatter .username{
+.current-chatter .username {
     padding-right: 4px;
 }
 
-.other-chatter .username{
+.other-chatter .username {
     padding-left: 4px;
 }
 
-
-
-.app-header{
+.app-header {
     /* background-color: rgba(5, 5, 5, 0.9); */
     text-align: center;
     /* padding: 35px; */
@@ -113,4 +143,3 @@ body {
     border-left: 0px;
     background-color: white;
 }
-

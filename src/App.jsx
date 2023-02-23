@@ -1,6 +1,8 @@
 import { Component } from "react";
+import { Route, Routes } from "react-router-dom";
 import ChatPage from "./pages/ChatPage";
-import randomColor from "./services/randomColor";
+import HomePage from "./pages/HomePage";
+import randomAvatar from "./services/randomAvatar";
 import randomName from "./services/randomName";
 
 class App extends Component {
@@ -8,7 +10,7 @@ class App extends Component {
         messages: [],
         member: {
             username: randomName(),
-            color: randomColor(),
+            avatar: randomAvatar(),
         },
     };
     constructor() {
@@ -22,13 +24,13 @@ class App extends Component {
             }
             const member = { ...this.state.member };
             member.id = this.drone.clientId;
-            this.setState({member});
+            this.setState({ member });
         });
         const room = this.drone.subscribe("observable-room");
-        room.on('data', (data, member) => {
+        room.on("data", (data, member) => {
             const messages = this.state.messages;
-            messages.push({  text: data, member: member});
-            this.setState({messages: messages});
+            messages.push({ text: data, member: member });
+            this.setState({ messages: messages });
         });
     }
     onSendMessage = (message) => {
@@ -40,8 +42,11 @@ class App extends Component {
         // this.setState({ messages: newMessages });
         this.drone.publish({
             room: "observable-room",
-            message
+            message,
         });
+    };
+    changeMember = (member) => {
+        this.setState({ member: member });
     };
     // contextData = {
     //     onSendMessage: this.onSendMessage,
@@ -51,15 +56,15 @@ class App extends Component {
     render() {
         return (
             <div className="container">
-                <div className="app-header">
-                    <h1>Chat App</h1>
-                    <hr className="margin-hr"/>
-                </div>
-                <ChatPage
-                    currentChatter={this.state.member}
-                    messages={this.state.messages}
-                    onSendMessage={this.onSendMessage}
-                />
+                <Routes>
+                    <Route path="/" element={<HomePage changeMember={this.changeMember} /> }/>
+                        
+                    <Route path="/chatbox" element={<ChatPage
+                            currentChatter={this.state.member}
+                            messages={this.state.messages}
+                            onSendMessage={this.onSendMessage}
+                        />} />      
+                </Routes>
             </div>
         );
     }
