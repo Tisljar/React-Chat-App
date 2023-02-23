@@ -15,7 +15,7 @@
 
 .container {
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 0 auto;
     background-color: white;
     border-radius: 16px;
     padding: 16px;
@@ -23,7 +23,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    background-color: #FDFFFC;
+    background-color: #fdfffc;
 }
 span {
     width: 50px;
@@ -34,13 +34,19 @@ span {
 }
 .radio-input {
     display: none;
-  }
-  
+}
 
-.radio-input:checked + .avatar-png{
+.avatar-box {
+    display: inline-block;
+}
+.avatar-png {
+    border-radius: 48px;
+}
+.radio-input:checked + .avatar-png {
     border-radius: 48px;
     background-color: aqua;
 }
+
 .Avatar1 {
     background-image: fixed center url(/src/assets/img/Avatar1.png);
 }

@@ -19,7 +19,7 @@ const Messages = ({ currentChatter, messages }) => {
                 {/* <span className="Avatar" style={{ backgroundColor: member.clientData.color }} /> */}
                 <div className="chat-box">
                     <div>
-                    <div>
+                    <div className="avatar-box">
                         <img src={userAvatarImgSrc} alt="" width="50px" height="50px"/>
                     </div>
                     <div className="username">{member.clientData.username}</div>

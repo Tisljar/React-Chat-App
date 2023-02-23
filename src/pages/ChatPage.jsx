@@ -47,7 +47,7 @@ export default class ChatApp extends Component {
     render() {
         return (
             <>
-                <div className="container">
+                <div>
                     <HeaderChatBox />
                     <Messages
                         messages={this.state.messages}
