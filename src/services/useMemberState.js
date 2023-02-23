@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const useMemberState = () => {
-    const [member, setMember] = useState({ username: '', avatar: '' });
+    const [member, setMember] = useState({ username: '', avatar: 'Avatar1' });
     const setUsername = (username) => {
       setMember({ ...member, username });
     };

@@ -1,12 +1,13 @@
 import avatars from "../services/avatarList";
 import Avatar from "../components/Avatar";
 import useMemberState from "../services/useMemberState";
-
+import { useNavigate } from "react-router-dom";
 
 const HomePage = ({ changeMember }) => {
     const [member, setUsername, setAvatar] = useMemberState();
-
+    const navigate = useNavigate();
     const handleUsernameChange = (event) => {
+        console.log(event.target);
         setUsername(event.target.value);
     };
 
@@ -16,6 +17,7 @@ const HomePage = ({ changeMember }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         changeMember(member);
+        navigate('/chatbox');
     };
     return (
         <div className="member-form">
@@ -23,7 +25,7 @@ const HomePage = ({ changeMember }) => {
                 <label>
                     Enter your username:
                     <input
-                    onChange={handleUsernameChange}
+                        onChange={handleUsernameChange}
                         type="text"
                         value={member.username}
                         required
@@ -31,10 +33,16 @@ const HomePage = ({ changeMember }) => {
                     />
                 </label>
                 <label>Select your avatar:</label>
-                
-                    {avatars.map((avatar) => (
-                        <Avatar avatar={avatar.name} imgSrc={avatar.imgSrc} key={avatar.name} checked={avatar.default}/>
-                    ))}
+
+                {avatars.map((avatar) => (
+                    <Avatar
+                        avatar={avatar.name}
+                        imgSrc={avatar.imgSrc}
+                        key={avatar.name}
+                        checked={avatar.default}
+                        handleAvatarChange={handleAvatarChange}
+                    />
+                ))}
                 <input type="submit" />
             </form>
         </div>
@@ -42,12 +50,3 @@ const HomePage = ({ changeMember }) => {
 };
 
 export default HomePage;
-
-
-{/* <select
-                    onChange={handleAvatarChange}
-                    name="Avatar"
-                    value={member.avatar}
-                    id="Avatar"
-                    required
-                ></select> */}

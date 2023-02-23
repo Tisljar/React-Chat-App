@@ -9,8 +9,8 @@ class App extends Component {
     state = {
         messages: [],
         member: {
-            username: randomName(),
-            avatar: randomAvatar(),
+            username: '',
+            avatar: '',
         },
     };
     constructor() {
@@ -46,6 +46,7 @@ class App extends Component {
         });
     };
     changeMember = (member) => {
+        console.log(member);
         this.setState({ member: member });
     };
     // contextData = {
@@ -53,6 +54,7 @@ class App extends Component {
     //     messages: this.state.messages,
     //     member: this.state.member,
     // };
+    componentDidUpdate 
     render() {
         return (
             <div className="container">

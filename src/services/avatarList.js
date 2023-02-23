@@ -9,10 +9,10 @@ import Avatar6 from "../assets/img/Avatar6.png";
 const avatars = [
     { name: "Avatar1", imgSrc: Avatar1, default: true },
     { name: "Avatar2", imgSrc: Avatar2, default: false },
-    { name: "Avatar1", imgSrc: Avatar3, default: false },
-    { name: "Avatar3", imgSrc: Avatar4, default: false },
-    { name: "Avatar4", imgSrc: Avatar5, default: false },
-    { name: "Avatar5", imgSrc: Avatar6, default: false },
+    { name: "Avatar3", imgSrc: Avatar3, default: false },
+    { name: "Avatar4", imgSrc: Avatar4, default: false },
+    { name: "Avatar5", imgSrc: Avatar5, default: false },
+    { name: "Avatar6", imgSrc: Avatar6, default: false },
 ];
 
 export default avatars;
