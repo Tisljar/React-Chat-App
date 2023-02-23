@@ -3,9 +3,47 @@ import Input from "../components/Input";
 import Messages from "../components/Messages";
 
 export default class ChatApp extends Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            messages: [],
+            member: props.member,
+        };
+        this.drone = new window.Scaledrone("XR4pZ8C082pBHncb", {
+            data: this.state.member,
+        });
+        this.drone.on("open", (error) => {
+            if (error) {
+                return console.error(error);
+            }
+            const member = { ...this.state.member };
+            member.id = this.drone.clientId;
+            this.setState({ member });
+        });
+        const room = this.drone.subscribe("observable-room");
+        room.on("data", (data, member) => {
+            const messages = this.state.messages;
+            messages.push({ text: data, member: member });
+            this.setState({ messages: messages });
+        });
+    }
+    componentDidMount= () => {
+        
+    }
+    onSendMessage = (message) => {
+        // const newMessages = this.state.messages;
+        // newMessages.push({
+        //     text: message,
+        //     member: this.state.member,
+        // });
+        // this.setState({ messages: newMessages });
+        this.drone.publish({
+            room: "observable-room",
+            message,
+        });
+    };
     render() {
-        const { currentChatter, messages } = this.props;
-        const { onSendMessage } = this.props;
         return (
             <>
                 <div className="container">
@@ -14,10 +52,10 @@ export default class ChatApp extends Component {
                         <hr className="margin-hr" />
                     </div>
                     <Messages
-                        messages={messages}
-                        currentChatter={currentChatter}
+                        messages={this.state.messages}
+                        currentChatter={this.state.member}
                     />
-                    <Input onSendMessage={onSendMessage} />
+                    <Input onSendMessage={this.onSendMessage} />
                 </div>
             </>
         );

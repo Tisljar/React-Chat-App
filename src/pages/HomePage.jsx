@@ -7,7 +7,6 @@ const HomePage = ({ changeMember }) => {
     const [member, setUsername, setAvatar] = useMemberState();
     const navigate = useNavigate();
     const handleUsernameChange = (event) => {
-        console.log(event.target);
         setUsername(event.target.value);
     };
 

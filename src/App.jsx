@@ -2,70 +2,33 @@ import { Component } from "react";
 import { Route, Routes } from "react-router-dom";
 import ChatPage from "./pages/ChatPage";
 import HomePage from "./pages/HomePage";
-import randomAvatar from "./services/randomAvatar";
-import randomName from "./services/randomName";
-
 class App extends Component {
     state = {
-        messages: [],
-        member: {
-            username: '',
-            avatar: '',
-        },
-    };
-    constructor() {
-        super();
-        this.drone = new window.Scaledrone("XR4pZ8C082pBHncb", {
-            data: this.state.member,
-        });
-        this.drone.on("open", (error) => {
-            if (error) {
-                return console.error(error);
-            }
-            const member = { ...this.state.member };
-            member.id = this.drone.clientId;
-            this.setState({ member });
-        });
-        const room = this.drone.subscribe("observable-room");
-        room.on("data", (data, member) => {
-            const messages = this.state.messages;
-            messages.push({ text: data, member: member });
-            this.setState({ messages: messages });
-        });
-    }
-    onSendMessage = (message) => {
-        // const newMessages = this.state.messages;
-        // newMessages.push({
-        //     text: message,
-        //     member: this.state.member,
-        // });
-        // this.setState({ messages: newMessages });
-        this.drone.publish({
-            room: "observable-room",
-            message,
-        });
+        username: "",
+        avatar: "",
     };
     changeMember = (member) => {
-        console.log(member);
-        this.setState({ member: member });
+        this.setState({username: member.username,avatar: member.avatar} )
+        
     };
     // contextData = {
     //     onSendMessage: this.onSendMessage,
     //     messages: this.state.messages,
     //     member: this.state.member,
     // };
-    componentDidUpdate 
+    componentDidUpdate;
     render() {
         return (
             <div className="container">
                 <Routes>
-                    <Route path="/" element={<HomePage changeMember={this.changeMember} /> }/>
-                        
-                    <Route path="/chatbox" element={<ChatPage
-                            currentChatter={this.state.member}
-                            messages={this.state.messages}
-                            onSendMessage={this.onSendMessage}
-                        />} />      
+                    <Route
+                        path="/"
+                        element={<HomePage changeMember={this.changeMember} />}
+                    />
+                    <Route
+                        path="/chatbox"
+                        element={<ChatPage member={this.state} />}
+                    />
                 </Routes>
             </div>
         );
