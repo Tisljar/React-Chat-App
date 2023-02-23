@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Input from "../components/Input";
 import Messages from "../components/Messages";
+import HeaderChatBox from "../fragments/HeaderChatBox";
 
 export default class ChatApp extends Component {
     
@@ -47,10 +48,7 @@ export default class ChatApp extends Component {
         return (
             <>
                 <div className="container">
-                    <div className="app-header">
-                        <h1>Chat App</h1>
-                        <hr className="margin-hr" />
-                    </div>
+                    <HeaderChatBox />
                     <Messages
                         messages={this.state.messages}
                         currentChatter={this.state.member}
