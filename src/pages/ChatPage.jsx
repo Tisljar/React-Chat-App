@@ -11,12 +11,12 @@ export default class ChatApp extends Component {
             messages: [],
             member: props.member,
         };
-        this.messagesRef= React.createRef();
+        this.messagesRef = React.createRef();
         this.drone = new window.Scaledrone("XR4pZ8C082pBHncb", {
             data: this.state.member,
         });
     }
-    componentDidMount= () => {
+    componentDidMount = () => {
         this.drone.on("open", (error) => {
             if (error) {
                 return console.error(error);
@@ -27,20 +27,19 @@ export default class ChatApp extends Component {
         });
         const room = this.drone.subscribe("observable-room");
         room.on("data", (data, member) => {
-            
             const messages = this.state.messages;
             messages.push({ text: data, member: member });
             this.setState({ messages: messages });
-            
         });
-    }
+    };
     // componentDidUpdate = () => {
     //     this.scrollToBottom();
     // }
     scrollToBottom = () => {
-        this.messagesRef.current.scrollTop = this.messagesRef.current.scrollHeight;
-        console.log(this.messagesRef.current.scrollTop)
-      }
+        this.messagesRef.current.scrollTop =
+            this.messagesRef.current.scrollHeight;
+        console.log(this.messagesRef.current.scrollTop);
+    };
     onSendMessage = (message) => {
         // const newMessages = this.state.messages;
         // newMessages.push({
@@ -52,18 +51,17 @@ export default class ChatApp extends Component {
             room: "observable-room",
             message,
         });
-        
     };
     render() {
         return (
             <>
-                <div>
+                <div  className="container white">
                     <HeaderChatBox />
                     <div className="fullchat" ref={this.messagesRef}>
-                    <Messages
-                        messages={this.state.messages}
-                        currentChatter={this.state.member}
-                    />
+                        <Messages
+                            messages={this.state.messages}
+                            currentChatter={this.state.member}
+                        />
                     </div>
                     <Input onSendMessage={this.onSendMessage} />
                 </div>
