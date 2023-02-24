@@ -30,10 +30,12 @@ const HomePage = ({ changeMember }) => {
                         value={member.username}
                         required
                         maxLength={10}
+                        className="username-input"
                     />
                 </label>
+                
                 <label>Select your avatar:</label>
-
+                <div className="avatar-form-group">
                 {avatars.map((avatar) => (
                     <Avatar
                         avatar={avatar.name}
@@ -43,7 +45,10 @@ const HomePage = ({ changeMember }) => {
                         handleAvatarChange={handleAvatarChange}
                     />
                 ))}
-                <input type="submit" />
+                </div>
+                <div className="btn-container">
+                <input type="submit" className="btn-submit"/>
+                </div>
             </form>
         </div>
     );

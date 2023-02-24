@@ -21,6 +21,41 @@ body {
     background-color: #fdfffc;
 }
 /* FORMA HOME PAGE */
+h1{
+    text-align: center;
+    margin-bottom: 32px;
+}
+form{
+    max-width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    gap: 32px;
+}
+.username-input{
+    height: 32px;
+    border-radius: 16px;
+    border: 1px solid;
+    padding: 8px;
+    margin-top: 8px;
+}
+
+.btn-container{
+    margin: 0 auto;
+}
+
+.btn-submit{
+    text-align: center;
+    min-width: 50px;
+    height: 32px;
+    width: 300px;
+    border-radius: 16px;
+    border: 1px solid;
+    background-color: white;
+    margin: auto;
+}
 .radio-label {
     display: inline-block;
 }
@@ -39,15 +74,16 @@ body {
     background-color: aqua;
 }
 
-.messages-list {
-    padding: 0;
-    margin: auto;
-}
 
 /*ChatBox*/
 .app-header {
     text-align: center;
     color: black;
+}
+
+.messages-list {
+    padding: 0;
+    margin: auto;
 }
 
 .messages-message {

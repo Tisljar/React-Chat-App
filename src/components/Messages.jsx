@@ -2,11 +2,11 @@
 import avatars from "../services/avatarList";
 import findAvatarImgSrc from "../services/findAvatarImgSrc";
 
-const Messages = ({ currentChatter, messages,scroll }) => {
+const Messages = ({ currentChatter, messages }) => {
     // let prevMsgSame = false;
     let msgCounter = 0;
     
-    const renderMessage = (message) => {
+    const renderMessage = (message,index) => {
         msgCounter += 1;
         const { member, text } = message;
         const currentAvatarImgSrc = findAvatarImgSrc(avatars, currentChatter);
@@ -39,7 +39,7 @@ const Messages = ({ currentChatter, messages,scroll }) => {
     return (
         <>
             <ul className="messages-list">
-                {messages.map((message) => (renderMessage(message)))}
+                {messages.map((message,index) => (renderMessage(message,index)))}
             </ul>
         </>
     );

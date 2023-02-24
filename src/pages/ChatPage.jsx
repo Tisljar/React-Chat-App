@@ -63,7 +63,6 @@ export default class ChatApp extends Component {
                     <Messages
                         messages={this.state.messages}
                         currentChatter={this.state.member}
-                        scroll = {this.scrollToBottom}
                     />
                     </div>
                     <Input onSendMessage={this.onSendMessage} />
