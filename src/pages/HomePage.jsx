@@ -20,6 +20,7 @@ const HomePage = ({ changeMember }) => {
     };
     return (
         <div className="member-form">
+            <h1>Welcome To Chat-App</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Enter your username:

@@ -16,7 +16,6 @@ class App extends Component {
     //     messages: this.state.messages,
     //     member: this.state.member,
     // };
-    componentDidUpdate;
     render() {
         return (
             <div className="container">
