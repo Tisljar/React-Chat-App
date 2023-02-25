@@ -32,14 +32,6 @@ export default class ChatApp extends Component {
             this.setState({ messages: messages });
         });
     };
-    // componentDidUpdate = () => {
-    //     this.scrollToBottom();
-    // }
-    scrollToBottom = () => {
-        this.messagesRef.current.scrollTop =
-            this.messagesRef.current.scrollHeight;
-        console.log(this.messagesRef.current.scrollTop);
-    };
     onSendMessage = (message) => {
         // const newMessages = this.state.messages;
         // newMessages.push({
@@ -57,14 +49,13 @@ export default class ChatApp extends Component {
             <>
                 <div  className="container white">
                     <HeaderChatBox />
-                    <div className="fullchat" ref={this.messagesRef}>
+                    
                         <Messages
                             messages={this.state.messages}
                             currentChatter={this.state.member}
                         />
                     </div>
                     <Input onSendMessage={this.onSendMessage} />
-                </div>
             </>
         );
     }

@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useRef } from "react";
 import avatars from "../services/avatarList";
 import findAvatarImgSrc from "../services/findAvatarImgSrc";
 
@@ -5,6 +7,17 @@ const Messages = ({ currentChatter, messages }) => {
     // let prevMsgSame = false;
     let msgCounter = 0;
     let idOfLastMsg = "";
+    // componentDidUpdate = () => {
+    //     this.scrollToBottom();
+    // }
+    const messagesRef = useRef();
+    const scrollToBottom = (messagesRef) => {
+        messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    };
+    useEffect(() => {
+        const scroll = scrollToBottom(messagesRef);
+        console.log(scroll);
+    },[messages])
     const renderMessage = (message, index) => {
         msgCounter += 1;
         const { member, text } = message;
@@ -15,7 +28,7 @@ const Messages = ({ currentChatter, messages }) => {
         idOfLastMsg = member.id;
         let messageContent = "message-content";
         if (check) {
-            messageContent = "message-content message-same"
+            messageContent = "message-content message-same";
         }
         const className = messageFromMe
             ? "messages-message current-chatter"
@@ -53,11 +66,13 @@ const Messages = ({ currentChatter, messages }) => {
     };
     return (
         <>
-            <ul className="messages-list">
-                {messages.map((message, index) =>
-                    renderMessage(message, index)
-                )}
-            </ul>
+            <div className="fullchat" ref={messagesRef}>
+                <ul className="messages-list">
+                    {messages.map((message, index) =>
+                        renderMessage(message, index)
+                    )}
+                </ul>
+            </div>
         </>
     );
 };
