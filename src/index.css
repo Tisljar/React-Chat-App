@@ -117,11 +117,6 @@ label {
     align-items: center;
 }
 
-/* .fullchat{
-    display: flex;
-    flex-direction: column-reverse;
-} */
-
 .current-chatter {
     flex-direction: row-reverse;
     text-align: right;

@@ -12,7 +12,7 @@ export default class ChatApp extends Component {
             member: props.member,
         };
         this.messagesRef = React.createRef();
-        this.drone = new window.Scaledrone("XR4pZ8C082pBHncb", {
+        this.drone = new window.Scaledrone("2Nio2A8E3xFoHGEC", {
             data: this.state.member,
         });
     }

@@ -4,21 +4,15 @@ import avatars from "../services/avatarList";
 import findAvatarImgSrc from "../services/findAvatarImgSrc";
 
 const Messages = ({ currentChatter, messages }) => {
-    // let prevMsgSame = false;
     let msgCounter = 0;
     let idOfLastMsg = "";
-    // componentDidUpdate = () => {
-    //     this.scrollToBottom();
-    // }
     const messagesRef = useRef();
     const scrollToBottom = (messagesRef) => {
         messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
-        console.log(messagesRef.current.scrollTop);
-        return messagesRef;
+        console.log(messagesRef.current.scrollTop)
     };
     useEffect(() => {
-        const scroll = scrollToBottom(messagesRef);
-        console.log(scroll);
+        scrollToBottom(messagesRef);
     },[messages])
     const renderMessage = (message) => {
         msgCounter += 1;
