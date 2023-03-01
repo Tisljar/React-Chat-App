@@ -1,7 +1,7 @@
 const HeaderChatBox = () => {
     return (
         <div className="app-header">
-            <h1>Chat App</h1>
+            <h2>Chat App</h2>
             <hr className="margin-hr" />
         </div>
     );

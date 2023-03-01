@@ -9,11 +9,12 @@ const Messages = ({ currentChatter, messages }) => {
     const messagesRef = useRef();
     const scrollToBottom = (messagesRef) => {
         messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
-        console.log(messagesRef.current.scrollTop)
+        console.log(messagesRef.current.scrollTop);
     };
     useEffect(() => {
         scrollToBottom(messagesRef);
-    },[messages])
+        console.log("update");
+    });
     const renderMessage = (message) => {
         msgCounter += 1;
         const { member, text } = message;
@@ -64,9 +65,7 @@ const Messages = ({ currentChatter, messages }) => {
         <>
             <div className="fullchat" ref={messagesRef}>
                 <ul className="messages-list">
-                    {messages.map((message) =>
-                        renderMessage(message)
-                    )}
+                    {messages.map((message) => renderMessage(message))}
                 </ul>
             </div>
         </>

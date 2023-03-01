@@ -22,18 +22,20 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
         to top,
         #f3e7e9 0%,
         #e3eeff 99%,
         #e3eeff 100%
-    );
-    height: 100vh;
+    ); */
+    background-image: url("./assets/img/low-poly-grid-haikei.svg");
+    background-size: cover;
 }
 /* FORMA HOME PAGE */
 h1 {
     text-align: center;
     margin-bottom: 32px;
+    color: white;
 }
 form {
     max-width: 40%;
@@ -89,7 +91,7 @@ label {
 }
 .radio-input:checked + .avatar-png {
     border-radius: 48px;
-    background-color: aqua;
+    background-color: #0856CF;
 }
 
 /*ChatBox*/
@@ -141,7 +143,7 @@ label {
 }
 
 .current-chatter .message-content {
-    background-color: blue;
+    background-color: #0856CF;
     padding: 16px;
     border-radius: 16px;
     margin-top: 8px;
@@ -150,7 +152,7 @@ label {
 }
 
 .other-chatter .message-content {
-    background-color: red;
+    background-color: #ed3030e0;
     padding: 16px;
     border-radius: 16px;
     margin-top: 8px;

@@ -47,15 +47,14 @@ export default class ChatApp extends Component {
     render() {
         return (
             <>
-                <div  className="container white">
+                <div className="container white">
                     <HeaderChatBox />
-                    
-                        <Messages
-                            messages={this.state.messages}
-                            currentChatter={this.state.member}
-                        />
-                    </div>
+                    <Messages
+                        messages={this.state.messages}
+                        currentChatter={this.state.member}
+                    />
                     <Input onSendMessage={this.onSendMessage} />
+                </div>
             </>
         );
     }
