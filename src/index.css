@@ -15,7 +15,7 @@
     margin-right: 16px;
 }
 
-.white{
+.white {
     background-color: white;
     border-radius: 24px;
 }
@@ -91,16 +91,14 @@ label {
 }
 .radio-input:checked + .avatar-png {
     border-radius: 48px;
-    background-color: #0856CF;
+    background-color: #0856cf;
 }
 
 /*ChatBox*/
 
 .app-header {
-    
     text-align: center;
     color: black;
-    
 }
 
 .messages-list {
@@ -143,7 +141,7 @@ label {
 }
 
 .current-chatter .message-content {
-    background-color: #0856CF;
+    background-color: #0856cf;
     padding: 16px;
     border-radius: 16px;
     margin-top: 8px;
@@ -222,4 +220,30 @@ label {
 }
 .Avatar6 {
     background-image: fixed center url(/src/assets/img/Avatar6.png);
+}
+
+.nav-prompt {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(245, 245, 245, 0.777);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-nav {
+    padding: 10px 20px;
+    background-color: #0856cf;
+    border: 1px solid white;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
 }

@@ -9,11 +9,9 @@ const Messages = ({ currentChatter, messages }) => {
     const messagesRef = useRef();
     const scrollToBottom = (messagesRef) => {
         messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
-        console.log(messagesRef.current.scrollTop);
     };
     useEffect(() => {
         scrollToBottom(messagesRef);
-        console.log("update");
     });
     const renderMessage = (message) => {
         msgCounter += 1;

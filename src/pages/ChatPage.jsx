@@ -3,6 +3,7 @@ import React from "react";
 import Input from "../components/Input";
 import Messages from "../components/Messages";
 import HeaderChatBox from "../fragments/HeaderChatBox";
+import { Link } from "react-router-dom";
 
 export default class ChatApp extends Component {
     constructor(props) {
@@ -16,7 +17,18 @@ export default class ChatApp extends Component {
             data: this.state.member,
         });
     }
+    EmptyMember = {
+        avatar: "",
+        username: "",
+    };
+    LoggedIn = true;
+    authorizeUser = () => {
+        this.LoggedIn = false;
+    };
     componentDidMount = () => {
+        if (this.state.member.avatar === this.EmptyMember.avatar) {
+            this.authorizeUser();
+        }
         this.drone.on("open", (error) => {
             if (error) {
                 return console.error(error);
@@ -44,9 +56,18 @@ export default class ChatApp extends Component {
             message,
         });
     };
+
     render() {
         return (
             <>
+                {!this.LoggedIn && (
+                    <div className="nav-prompt">
+                        <h2>Ne možete slati poruke jer niste ulogirani!</h2>
+                        <Link to={"/"} className="btn-nav">
+                        Ulogiraj me!
+                        </Link>
+                    </div>
+                )}
                 <div className="container white">
                     <HeaderChatBox />
                     <Messages
