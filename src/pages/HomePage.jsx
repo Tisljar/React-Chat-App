@@ -14,8 +14,21 @@ const HomePage = ({ changeMember }) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
+        const radioInputs = document.querySelectorAll('input[type="radio"]');
+        let selectedRadio = false;
+
+        radioInputs.forEach((input) => {
+            if (input.checked) {
+                selectedRadio = true;
+            }
+        });
+
+        if (!selectedRadio) {
+            alert("Please select a radio option.");
+            return;
+        }
         changeMember(member);
-        navigate('/chatbox');
+        navigate("/chatbox");
     };
     return (
         <div className="member-form">
@@ -32,21 +45,20 @@ const HomePage = ({ changeMember }) => {
                         className="username-input"
                     />
                 </label>
-                
+
                 <label>Select your avatar:</label>
                 <div className="avatar-form-group">
-                {avatars.map((avatar) => (
-                    <Avatar
-                        avatar={avatar.name}
-                        imgSrc={avatar.imgSrc}
-                        key={avatar.name}
-                        checked={avatar.default}
-                        handleAvatarChange={handleAvatarChange}
-                    />
-                ))}
+                    {avatars.map((avatar) => (
+                        <Avatar
+                            avatar={avatar.name}
+                            imgSrc={avatar.imgSrc}
+                            key={avatar.name}
+                            handleAvatarChange={handleAvatarChange}
+                        />
+                    ))}
                 </div>
                 <div className="btn-container">
-                <input type="submit" className="btn-submit"/>
+                    <input type="submit" className="btn-submit" />
                 </div>
             </form>
         </div>
