@@ -9,7 +9,6 @@ const HomePage = ({ changeMember }) => {
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
-
     const handleAvatarChange = (event) => {
         setAvatar(event.target.value);
     };

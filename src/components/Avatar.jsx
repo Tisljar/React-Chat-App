@@ -1,9 +1,9 @@
 
 
-const Avatar = ({avatar,imgSrc,checked, handleAvatarChange}) => {
+const Avatar = ({avatar, imgSrc, handleAvatarChange,checked}) => {
     return (<>
-        <label className='radio-label' >
-        <input type="radio" name='avatar' value={avatar} className="radio-input" defaultChecked={checked} onClick={handleAvatarChange}/>
+        <label className='radio-label'>
+        <input type="radio" name='avatar' value={avatar} className="radio-input" onClick={handleAvatarChange}  required={checked}/>
         <img src={imgSrc} alt="" className='avatar-png' width="100px" height="100px" id={avatar}/>
         </label>
     </>);
