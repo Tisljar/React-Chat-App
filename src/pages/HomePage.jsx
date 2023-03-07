@@ -24,7 +24,7 @@ const HomePage = ({ changeMember }) => {
         });
 
         if (!selectedRadio) {
-            alert("Please select a radio option.");
+            alert("Izaberi Avatara!");
             return;
         }
         changeMember(member);
